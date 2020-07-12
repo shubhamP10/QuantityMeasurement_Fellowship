@@ -4,7 +4,9 @@ import org.junit.Test;
 public class QualityMeasurementTest {
     @Test
     public void givenLengthInFeet_ShouldReturnEquivalentValueInInches() {
-        Double inchesForFeet = new QualityMeasurement().getInchesForFeet(2.5);
+        double inchesForFeet = new QualityMeasurement().getInchesForFeet(1);
+        double feetForInches = new QualityMeasurement().getFeetForInches(12);
         System.out.println(inchesForFeet);
+        System.out.println(feetForInches);
     }
 }
