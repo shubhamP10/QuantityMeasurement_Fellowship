@@ -97,16 +97,24 @@ public class QuantityMeasurementTest {
     @Test
     public void given1InchAnd1Yard_ShouldReturnFalse() throws QuantityMeasurementException {
         double yardValue = quantityMeasurement.convert(UnitType.YARD, 1.0);
-        double feetValue = quantityMeasurement.convert(UnitType.INCH, 1.0);
-        boolean compare = quantityMeasurement.compare(feetValue, yardValue);
+        double inchValue = quantityMeasurement.convert(UnitType.INCH, 1.0);
+        boolean compare = quantityMeasurement.compare(inchValue, yardValue);
         Assert.assertFalse(compare);
     }
 
     @Test
     public void given36InchAnd1Yard_ShouldReturnTrue() throws QuantityMeasurementException {
         double yardValue = quantityMeasurement.convert(UnitType.YARD, 1.0);
-        double feetValue = quantityMeasurement.convert(UnitType.INCH, 36.0);
-        boolean compare = quantityMeasurement.compare(feetValue, yardValue);
+        double inchValue = quantityMeasurement.convert(UnitType.INCH, 36.0);
+        boolean compare = quantityMeasurement.compare(inchValue, yardValue);
+        Assert.assertTrue(compare);
+    }
+
+    @Test
+    public void given1YardAnd3Feet_ShouldReturnTrue() throws QuantityMeasurementException {
+        double yardValue = quantityMeasurement.convert(UnitType.YARD, 1.0);
+        double feetValue = quantityMeasurement.convert(UnitType.FEET, 3.0);
+        boolean compare = quantityMeasurement.compare(yardValue, feetValue);
         Assert.assertTrue(compare);
     }
 }
