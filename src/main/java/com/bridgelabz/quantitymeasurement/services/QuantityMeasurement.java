@@ -4,7 +4,7 @@ import com.bridgelabz.quantitymeasurement.utility.UnitType;
 
 public class QuantityMeasurement {
 
-    public double convert(UnitType unitType, double value) {
+    public double convert(UnitType unitType, Double value) {
         return (value * unitType.returnValue());
     }
 

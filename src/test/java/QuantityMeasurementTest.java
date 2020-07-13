@@ -14,8 +14,8 @@ public class QuantityMeasurementTest {
     }
     @Test
     public void givenBothInchValuesAsZero_ShouldReturnTrue() {
-        double inchValue1 = quantityMeasurement.convert(UnitType.INCH, 0);
-        double inchValue2 = quantityMeasurement.convert(UnitType.INCH, 0);
+        double inchValue1 = quantityMeasurement.convert(UnitType.INCH, 0.0);
+        double inchValue2 = quantityMeasurement.convert(UnitType.INCH, 0.0);
         boolean compare = new QuantityMeasurement().compare(inchValue1, inchValue2);
         Assert.assertTrue(compare);
     }
@@ -46,8 +46,16 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenFeetAndInchValuesAsZero_ShouldReturnTrue() {
-        double inchValue = quantityMeasurement.convert(UnitType.INCH, 0);
-        double feetValue = quantityMeasurement.convert(UnitType.FEET, 0);
+        double inchValue = quantityMeasurement.convert(UnitType.INCH, 0.0);
+        double feetValue = quantityMeasurement.convert(UnitType.FEET, 0.0);
+        boolean compare = new QuantityMeasurement().compare(inchValue, feetValue);
+        Assert.assertTrue(compare);
+    }
+
+    @Test
+    public void givenFeetAndInchValuesAsNull_ShouldThrowException() {
+        double inchValue = quantityMeasurement.convert(UnitType.INCH, null);
+        double feetValue = quantityMeasurement.convert(UnitType.FEET, null);
         boolean compare = new QuantityMeasurement().compare(inchValue, feetValue);
         Assert.assertTrue(compare);
     }
