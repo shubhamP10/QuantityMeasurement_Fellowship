@@ -12,6 +12,13 @@ public class QuantityMeasurementTest {
     public void setUp() {
         quantityMeasurement = new QuantityMeasurement();
     }
+    @Test
+    public void givenBothInchValuesAsZero_ShouldReturnTrue() {
+        double inchValue1 = quantityMeasurement.convert(UnitType.INCH, 0);
+        double inchValue2 = quantityMeasurement.convert(UnitType.INCH, 0);
+        boolean compare = new QuantityMeasurement().compare(inchValue1, inchValue2);
+        Assert.assertTrue(compare);
+    }
 
     @Test
     public void givenTwoSameInchValues_ShouldReturnTrue() {
