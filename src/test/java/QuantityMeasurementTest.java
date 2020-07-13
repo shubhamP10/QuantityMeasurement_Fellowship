@@ -40,14 +40,6 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFeetAndInchValuesProperly_ShouldReturnTrue() throws QuantityMeasurementException {
-        double inchValue = quantityMeasurement.convert(UnitType.INCH, 12.0);
-        double feetValue = quantityMeasurement.convert(UnitType.FEET, 1.0);
-        boolean compare = new QuantityMeasurement().compare(inchValue, feetValue);
-        Assert.assertTrue(compare);
-    }
-
-    @Test
     public void givenFeetAndInchValuesAsZero_ShouldReturnTrue() throws QuantityMeasurementException {
         double inchValue = quantityMeasurement.convert(UnitType.INCH, 0.0);
         double feetValue = quantityMeasurement.convert(UnitType.FEET, 0.0);
@@ -56,16 +48,23 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFeetAndInchValuesAsNull_ShouldThrowException() throws QuantityMeasurementException {
+    public void givenFeetAndInchValuesProperly_ShouldReturnTrue() throws QuantityMeasurementException {
+        double inchValue = quantityMeasurement.convert(UnitType.INCH, 12.0);
+        double feetValue = quantityMeasurement.convert(UnitType.FEET, 1.0);
+        boolean compare = new QuantityMeasurement().compare(inchValue, feetValue);
+        Assert.assertTrue(compare);
+    }
+
+    @Test
+    public void givenFeetAndInchValuesAsNull_ShouldThrowException() {
         try {
             double inchValue = quantityMeasurement.convert(UnitType.INCH, null);
             double feetValue = quantityMeasurement.convert(UnitType.FEET, null);
-            boolean compare = new QuantityMeasurement().compare(inchValue, feetValue);
+            new QuantityMeasurement().compare(inchValue, feetValue);
             ExpectedException exceptionRule = ExpectedException.none();
             exceptionRule.expect(QuantityMeasurementException.class);
         } catch (QuantityMeasurementException e) {
-           Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE_PROVIDED);
+            Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE_PROVIDED);
         }
-
     }
 }

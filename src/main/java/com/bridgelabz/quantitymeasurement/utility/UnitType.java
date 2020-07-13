@@ -2,7 +2,7 @@ package com.bridgelabz.quantitymeasurement.utility;
 
 public enum UnitType {
 
-    INCH(1), FEET(12);
+    INCH(1), FEET(12), YARD(36);
 
     private final double value;
 
