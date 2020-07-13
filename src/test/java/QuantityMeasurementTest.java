@@ -77,4 +77,12 @@ public class QuantityMeasurementTest {
             Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE_PROVIDED);
         }
     }
+
+    @Test
+    public void given3FeetAnd1Yard_ShouldReturnTrue() throws QuantityMeasurementException {
+        double yardValue = quantityMeasurement.convert(UnitType.YARD, 1.0);
+        double feetValue = quantityMeasurement.convert(UnitType.FEET, 3.0);
+        boolean compare = quantityMeasurement.compare(feetValue, yardValue);
+        Assert.assertTrue(compare);
+    }
 }
