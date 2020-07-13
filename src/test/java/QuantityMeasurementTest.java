@@ -43,4 +43,12 @@ public class QuantityMeasurementTest {
         boolean compare = new QuantityMeasurement().compare(inchValue, feetValue);
         Assert.assertTrue(compare);
     }
+
+    @Test
+    public void givenFeetAndInchValuesAsZero_ShouldReturnTrue() {
+        double inchValue = quantityMeasurement.convert(UnitType.INCH, 0);
+        double feetValue = quantityMeasurement.convert(UnitType.FEET, 0);
+        boolean compare = new QuantityMeasurement().compare(inchValue, feetValue);
+        Assert.assertTrue(compare);
+    }
 }
