@@ -1,4 +1,4 @@
-package com.bridgelabz.qualitymeasurement.utility;
+package com.bridgelabz.quantitymeasurement.utility;
 
 public enum UnitType {
 
