@@ -93,4 +93,12 @@ public class QuantityMeasurementTest {
         boolean compare = quantityMeasurement.compare(feetValue, yardValue);
         Assert.assertFalse(compare);
     }
+
+    @Test
+    public void given1InchAnd1Yard_ShouldReturnFalse() throws QuantityMeasurementException {
+        double yardValue = quantityMeasurement.convert(UnitType.YARD, 1.0);
+        double feetValue = quantityMeasurement.convert(UnitType.INCH, 1.0);
+        boolean compare = quantityMeasurement.compare(feetValue, yardValue);
+        Assert.assertFalse(compare);
+    }
 }
