@@ -58,9 +58,19 @@ public class QuantityMeasurementTest {
     @Test
     public void givenFeetAndInchValuesAsNull_ShouldThrowException() {
         try {
-            double inchValue = quantityMeasurement.convert(UnitType.INCH, null);
-            double feetValue = quantityMeasurement.convert(UnitType.FEET, null);
-            new QuantityMeasurement().compare(inchValue, feetValue);
+            quantityMeasurement.convert(UnitType.INCH, null);
+            quantityMeasurement.convert(UnitType.FEET, null);
+            ExpectedException exceptionRule = ExpectedException.none();
+            exceptionRule.expect(QuantityMeasurementException.class);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE_PROVIDED);
+        }
+    }
+
+    @Test
+    public void givenYardValueNull_ShouldThrowException() {
+        try {
+            quantityMeasurement.convert(UnitType.YARD, null);
             ExpectedException exceptionRule = ExpectedException.none();
             exceptionRule.expect(QuantityMeasurementException.class);
         } catch (QuantityMeasurementException e) {
