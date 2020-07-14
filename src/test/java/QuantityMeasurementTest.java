@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class QuantityMeasurementTest {
 
-    QuantityMeasurement inchValue1, inchValue2, feetValue1, feetValue2, inchValue, feetValue, yardValue;
+    QuantityMeasurement inchValue1, inchValue2, feetValue1, feetValue2, inchValue, feetValue, yardValue, centimeterValue;
 
     @Test
     public void givenBothInchValuesAsZero_ShouldReturnTrue() throws QuantityMeasurementException {
@@ -102,5 +102,13 @@ public class QuantityMeasurementTest {
         yardValue = new QuantityMeasurement(UnitType.YARD, 1.0);
         boolean equals = yardValue.equals(Object.class);
         Assert.assertFalse(equals);
+    }
+
+//    UC 3
+    @Test
+    public void given1InchAnd5Centimeter_ShouldReturnTrue() throws QuantityMeasurementException {
+        inchValue = new QuantityMeasurement(UnitType.INCH, 1.0);
+        centimeterValue = new QuantityMeasurement(UnitType.CENTIMETER, 5.0);
+        Assert.assertEquals(yardValue,feetValue);
     }
 }
