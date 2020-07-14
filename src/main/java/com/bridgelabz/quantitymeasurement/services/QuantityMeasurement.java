@@ -11,7 +11,6 @@ public class QuantityMeasurement {
             throw new QuantityMeasurementException("Null Value Provided",
                     QuantityMeasurementException.ExceptionType.NULL_VALUE_PROVIDED);
         this.value = (value * unitType.value);
-
     }
 
     @Override

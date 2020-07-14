@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class QuantityMeasurementTest {
 
-    QuantityMeasurement inchValue1, inchValue2, feetValue1, feetValue2, inchValue, feetValue, yardValue;
+    QuantityMeasurement inchValue1, inchValue2, feetValue1, feetValue2, inchValue, feetValue, yardValue, centimeterValue;
 
     @Test
     public void givenBothInchValuesAsZero_ShouldReturnTrue() throws QuantityMeasurementException {
@@ -47,35 +47,35 @@ public class QuantityMeasurementTest {
     public void given3FeetAnd1Yard_ShouldReturnTrue() throws QuantityMeasurementException {
         yardValue = new QuantityMeasurement(UnitType.YARD, 1.0);
         feetValue = new QuantityMeasurement(UnitType.FEET, 3.0);
-        Assert.assertEquals(yardValue,feetValue);
+        Assert.assertEquals(yardValue, feetValue);
     }
 
     @Test
     public void given1FeetAnd1Yard_ShouldReturnFalse() throws QuantityMeasurementException {
         yardValue = new QuantityMeasurement(UnitType.YARD, 1.0);
         feetValue = new QuantityMeasurement(UnitType.FEET, 1.0);
-        Assert.assertNotEquals(yardValue,feetValue);
+        Assert.assertNotEquals(yardValue, feetValue);
     }
 
     @Test
     public void given1InchAnd1Yard_ShouldReturnFalse() throws QuantityMeasurementException {
         yardValue = new QuantityMeasurement(UnitType.YARD, 1.0);
         inchValue = new QuantityMeasurement(UnitType.INCH, 1.0);
-        Assert.assertNotEquals(yardValue,inchValue);
+        Assert.assertNotEquals(yardValue, inchValue);
     }
 
     @Test
     public void given36InchAnd1Yard_ShouldReturnTrue() throws QuantityMeasurementException {
         yardValue = new QuantityMeasurement(UnitType.YARD, 1.0);
         inchValue = new QuantityMeasurement(UnitType.INCH, 36.0);
-        Assert.assertEquals(yardValue,inchValue);
+        Assert.assertEquals(yardValue, inchValue);
     }
 
     @Test
     public void given1YardAnd3Feet_ShouldReturnTrue() throws QuantityMeasurementException {
         yardValue = new QuantityMeasurement(UnitType.YARD, 1.0);
         feetValue = new QuantityMeasurement(UnitType.FEET, 3.0);
-        Assert.assertEquals(yardValue,feetValue);
+        Assert.assertEquals(yardValue, feetValue);
     }
 
     @Test
@@ -83,8 +83,8 @@ public class QuantityMeasurementTest {
         try {
             yardValue = new QuantityMeasurement(UnitType.YARD, null);
             feetValue = new QuantityMeasurement(UnitType.FEET, null);
-            Assert.assertEquals(yardValue,feetValue);
-        }catch (QuantityMeasurementException e){
+            Assert.assertEquals(yardValue, feetValue);
+        } catch (QuantityMeasurementException e) {
             e.printStackTrace();
         }
 
@@ -102,5 +102,41 @@ public class QuantityMeasurementTest {
         yardValue = new QuantityMeasurement(UnitType.YARD, 1.0);
         boolean equals = yardValue.equals(Object.class);
         Assert.assertFalse(equals);
+    }
+
+    //    UC 3
+    @Test
+    public void given0CentimeterAnd0Centimeter_ShouldReturnTrue() throws QuantityMeasurementException {
+        inchValue = new QuantityMeasurement(UnitType.INCH, 0.0);
+        centimeterValue = new QuantityMeasurement(UnitType.CENTIMETER, 0.0);
+        Assert.assertEquals(inchValue, centimeterValue);
+    }
+
+    @Test
+    public void given2InchAnd5Centimeter_ShouldReturnTrue() throws QuantityMeasurementException {
+        inchValue = new QuantityMeasurement(UnitType.INCH, 2.0);
+        centimeterValue = new QuantityMeasurement(UnitType.CENTIMETER, 5.0);
+        Assert.assertEquals(centimeterValue, inchValue);
+    }
+
+    @Test
+    public void given1InchAnd5Centimeter_ShouldReturnTrue() throws QuantityMeasurementException {
+        inchValue = new QuantityMeasurement(UnitType.INCH, 1.0);
+        centimeterValue = new QuantityMeasurement(UnitType.CENTIMETER, 5.0);
+        Assert.assertNotEquals(centimeterValue, inchValue);
+    }
+
+    @Test
+    public void given1FeetAnd30Centimeter_ShouldReturnTrue() throws QuantityMeasurementException {
+        feetValue = new QuantityMeasurement(UnitType.FEET, 1.0);
+        centimeterValue = new QuantityMeasurement(UnitType.CENTIMETER, 30.0);
+        Assert.assertEquals(centimeterValue, feetValue);
+    }
+
+    @Test
+    public void given1YardAnd90Centimeter_ShouldReturnTrue() throws QuantityMeasurementException {
+        yardValue = new QuantityMeasurement(UnitType.YARD, 1.0);
+        centimeterValue = new QuantityMeasurement(UnitType.CENTIMETER, 90.0);
+        Assert.assertEquals(centimeterValue, yardValue);
     }
 }
