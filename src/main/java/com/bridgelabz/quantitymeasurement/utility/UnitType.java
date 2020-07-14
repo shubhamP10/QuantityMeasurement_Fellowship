@@ -4,13 +4,9 @@ public enum UnitType {
 
     INCH(1), FEET(12), YARD(36);
 
-    private final double value;
+    public final double value;
 
     UnitType(double value) {
         this.value = value;
-    }
-
-    public double returnValue() {
-        return value;
     }
 }
