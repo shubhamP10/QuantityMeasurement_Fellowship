@@ -125,4 +125,10 @@ public class QuantityMeasurementTest {
         boolean checkEqual = quantityMeasurement.equals(quantityMeasurement);
         Assert.assertTrue(checkEqual);
     }
+
+    @Test
+    public void givenNullReference_ShouldReturnFalse() {
+        boolean checkEqual = quantityMeasurement.equals(null);
+        Assert.assertFalse(checkEqual);
+    }
 }
