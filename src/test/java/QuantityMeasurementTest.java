@@ -6,7 +6,8 @@ import org.junit.Test;
 
 public class QuantityMeasurementTest {
 
-    QuantityMeasurement inchValue1, inchValue2, feetValue1, feetValue2, inchValue, feetValue, yardValue, centimeterValue;
+    QuantityMeasurement inchValue1, inchValue2, feetValue1, feetValue2, inchValue, feetValue, yardValue, centimeterValue,
+                        gallon, litre, millilitre;
 
     //    UC1
     @Test
@@ -148,31 +149,40 @@ public class QuantityMeasurementTest {
     public void given2InchAnd2Inch_WhenCorrect_ShouldReturn4Inch() throws QuantityMeasurementException {
         inchValue1 = new QuantityMeasurement(UnitType.INCH, 2.0);
         inchValue2 = new QuantityMeasurement(UnitType.INCH, 2.0);
-        double sumOfUnits = new QuantityMeasurement().getSumOfUnits(inchValue1,inchValue2);
-        Assert.assertEquals(4.0,sumOfUnits, 0.0);
+        double sumOfUnits = new QuantityMeasurement().getSumOfUnits(inchValue1, inchValue2);
+        Assert.assertEquals(4.0, sumOfUnits, 0.0);
     }
 
     @Test
     public void given1FeetAnd2Inch_WhenCorrect_ShouldReturn14Inch() throws QuantityMeasurementException {
         feetValue = new QuantityMeasurement(UnitType.FEET, 1.0);
         inchValue = new QuantityMeasurement(UnitType.INCH, 2.0);
-        double sumOfUnits = new QuantityMeasurement().getSumOfUnits(feetValue,inchValue);
-        Assert.assertEquals(14.0,sumOfUnits, 0.0);
+        double sumOfUnits = new QuantityMeasurement().getSumOfUnits(feetValue, inchValue);
+        Assert.assertEquals(14.0, sumOfUnits, 0.0);
     }
 
     @Test
     public void given1FeetAnd1Feet_WhenCorrect_ShouldReturn24Inch() throws QuantityMeasurementException {
         feetValue1 = new QuantityMeasurement(UnitType.FEET, 1.0);
         feetValue2 = new QuantityMeasurement(UnitType.FEET, 1.0);
-        double sumOfUnits = new QuantityMeasurement().getSumOfUnits(feetValue1,feetValue2);
-        Assert.assertEquals(24.0,sumOfUnits, 0.0);
+        double sumOfUnits = new QuantityMeasurement().getSumOfUnits(feetValue1, feetValue2);
+        Assert.assertEquals(24.0, sumOfUnits, 0.0);
     }
 
     @Test
     public void given2InchAnd2AndHalfCentimeter_WhenCorrect_ShouldReturn3Inch() throws QuantityMeasurementException {
         inchValue = new QuantityMeasurement(UnitType.INCH, 2.0);
         centimeterValue = new QuantityMeasurement(UnitType.CENTIMETER, 2.5);
-        double sumOfUnits = new QuantityMeasurement().getSumOfUnits(inchValue,centimeterValue);
-        Assert.assertEquals(3.0,sumOfUnits, 0.0);
+        double sumOfUnits = new QuantityMeasurement().getSumOfUnits(inchValue, centimeterValue);
+        Assert.assertEquals(3.0, sumOfUnits, 0.0);
+    }
+
+//    UC5
+
+    @Test
+    public void given1GallonShouldReturnEquivalentLitre() throws QuantityMeasurementException {
+        gallon = new QuantityMeasurement(UnitType.GALLON, 1.0);
+        litre = new QuantityMeasurement(UnitType.LITRE, 3.78);
+        Assert.assertEquals(gallon, litre);
     }
 }
