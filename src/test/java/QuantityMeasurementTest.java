@@ -7,7 +7,7 @@ import org.junit.Test;
 public class QuantityMeasurementTest {
 
     QuantityMeasurement inchValue1, inchValue2, feetValue1, feetValue2, inchValue, feetValue, yardValue, centimeterValue,
-                        gallon, litre, millilitre;
+            gallon, litre, millilitre;
 
     //    UC1
     @Test
@@ -143,7 +143,7 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(centimeterValue, yardValue);
     }
 
-//    UC 4
+    //    UC 4
 
     @Test
     public void given2InchAnd2Inch_WhenCorrect_ShouldReturn4Inch() throws QuantityMeasurementException {
@@ -177,7 +177,7 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(3.0, sumOfUnits, 0.0);
     }
 
-//    UC5
+    //    UC5
 
     @Test
     public void given1GallonShouldReturnEquivalentLitre() throws QuantityMeasurementException {
@@ -191,5 +191,15 @@ public class QuantityMeasurementTest {
         litre = new QuantityMeasurement(UnitType.LITRE, 1.0);
         millilitre = new QuantityMeasurement(UnitType.ML, 1000.0);
         Assert.assertEquals(litre, millilitre);
+    }
+
+    //    UC6
+
+    @Test
+    public void givenVolumesInGallonAndLitres_ShouldReturnSum() throws QuantityMeasurementException {
+        gallon = new QuantityMeasurement(UnitType.GALLON, 1.0);
+        litre = new QuantityMeasurement(UnitType.LITRE, 3.78);
+        double sumOfUnits = new QuantityMeasurement().getSumOfUnits(gallon, litre);
+        Assert.assertEquals(7.56, sumOfUnits, 0.0);
     }
 }
