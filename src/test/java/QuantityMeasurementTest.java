@@ -7,7 +7,7 @@ import org.junit.Test;
 public class QuantityMeasurementTest {
 
     QuantityMeasurement inchValue1, inchValue2, feetValue1, feetValue2, inchValue, feetValue, yardValue, centimeterValue,
-            gallon, litre, millilitre;
+            gallon, litre, millilitre, kg, gram, tonne;
 
     //    UC1
     @Test
@@ -209,5 +209,14 @@ public class QuantityMeasurementTest {
         millilitre = new QuantityMeasurement(UnitType.ML, 1000.0);
         double sumOfUnits = new QuantityMeasurement().getSumOfUnits(litre, millilitre);
         Assert.assertEquals(2.0, sumOfUnits, 0.0);
+    }
+
+    //    UC7
+
+    @Test
+    public void givenWeightInKgShouldReturnEquivalentWeightInGrams() throws QuantityMeasurementException {
+        kg = new QuantityMeasurement(UnitType.KILOGRAM, 1.0);
+        gram = new QuantityMeasurement(UnitType.GRAM, 1000.0);
+        Assert.assertEquals(kg, gram);
     }
 }
