@@ -202,4 +202,12 @@ public class QuantityMeasurementTest {
         double sumOfUnits = new QuantityMeasurement().getSumOfUnits(gallon, litre);
         Assert.assertEquals(7.56, sumOfUnits, 0.0);
     }
+
+    @Test
+    public void givenVolumesInLitresAndMillilitres_ShouldReturnSum() throws QuantityMeasurementException {
+        litre = new QuantityMeasurement(UnitType.LITRE, 1.0);
+        millilitre = new QuantityMeasurement(UnitType.ML, 1000.0);
+        double sumOfUnits = new QuantityMeasurement().getSumOfUnits(litre, millilitre);
+        Assert.assertEquals(2.0, sumOfUnits, 0.0);
+    }
 }
