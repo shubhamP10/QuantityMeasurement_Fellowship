@@ -153,7 +153,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1FeetAnd2Inch_WhenCorrect_ShouldReturn4Inch() throws QuantityMeasurementException {
+    public void given1FeetAnd2Inch_WhenCorrect_ShouldReturn14Inch() throws QuantityMeasurementException {
         feetValue = new QuantityMeasurement(UnitType.FEET, 1.0);
         inchValue = new QuantityMeasurement(UnitType.INCH, 2.0);
         double sumOfUnits = new QuantityMeasurement().getSumOfUnits(feetValue,inchValue);
@@ -161,10 +161,18 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1FeetAnd1Feet_WhenCorrect_ShouldReturn4Inch() throws QuantityMeasurementException {
+    public void given1FeetAnd1Feet_WhenCorrect_ShouldReturn24Inch() throws QuantityMeasurementException {
         feetValue1 = new QuantityMeasurement(UnitType.FEET, 1.0);
         feetValue2 = new QuantityMeasurement(UnitType.FEET, 1.0);
         double sumOfUnits = new QuantityMeasurement().getSumOfUnits(feetValue1,feetValue2);
         Assert.assertEquals(24.0,sumOfUnits, 0.0);
+    }
+
+    @Test
+    public void given2InchAnd2AndHalfCentimeter_WhenCorrect_ShouldReturn3Inch() throws QuantityMeasurementException {
+        inchValue = new QuantityMeasurement(UnitType.INCH, 2.0);
+        centimeterValue = new QuantityMeasurement(UnitType.CENTIMETER, 2.5);
+        double sumOfUnits = new QuantityMeasurement().getSumOfUnits(inchValue,centimeterValue);
+        Assert.assertEquals(3.0,sumOfUnits, 0.0);
     }
 }
