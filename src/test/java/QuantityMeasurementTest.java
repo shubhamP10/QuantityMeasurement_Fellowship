@@ -159,4 +159,12 @@ public class QuantityMeasurementTest {
         double sumOfUnits = new QuantityMeasurement().getSumOfUnits(feetValue,inchValue);
         Assert.assertEquals(14.0,sumOfUnits, 0.0);
     }
+
+    @Test
+    public void given1FeetAnd1Feet_WhenCorrect_ShouldReturn4Inch() throws QuantityMeasurementException {
+        feetValue1 = new QuantityMeasurement(UnitType.FEET, 1.0);
+        feetValue2 = new QuantityMeasurement(UnitType.FEET, 1.0);
+        double sumOfUnits = new QuantityMeasurement().getSumOfUnits(feetValue1,feetValue2);
+        Assert.assertEquals(24.0,sumOfUnits, 0.0);
+    }
 }
