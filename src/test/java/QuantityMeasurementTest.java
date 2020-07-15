@@ -214,9 +214,16 @@ public class QuantityMeasurementTest {
     //    UC7
 
     @Test
-    public void givenWeightInKgShouldReturnEquivalentWeightInGrams() throws QuantityMeasurementException {
+    public void givenWeightIn1KgShouldReturnEquivalentWeightInGrams() throws QuantityMeasurementException {
         kg = new QuantityMeasurement(UnitType.KILOGRAM, 1.0);
         gram = new QuantityMeasurement(UnitType.GRAM, 1000.0);
         Assert.assertEquals(kg, gram);
+    }
+
+    @Test
+    public void givenWeightIn1TonneShouldReturnEquivalentWeightInKiloGrams() throws QuantityMeasurementException {
+        tonne = new QuantityMeasurement(UnitType.TONNE, 1.0);
+        kg = new QuantityMeasurement(UnitType.KILOGRAM, 1000.0);
+        Assert.assertEquals(tonne, kg);
     }
 }
