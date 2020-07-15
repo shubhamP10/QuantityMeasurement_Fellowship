@@ -185,4 +185,11 @@ public class QuantityMeasurementTest {
         litre = new QuantityMeasurement(UnitType.LITRE, 3.78);
         Assert.assertEquals(gallon, litre);
     }
+
+    @Test
+    public void given1LitreShouldReturnEquivalentMillilitre() throws QuantityMeasurementException {
+        litre = new QuantityMeasurement(UnitType.LITRE, 1.0);
+        millilitre = new QuantityMeasurement(UnitType.ML, 1000.0);
+        Assert.assertEquals(litre, millilitre);
+    }
 }
