@@ -8,6 +8,7 @@ public class QuantityMeasurementTest {
 
     QuantityMeasurement inchValue1, inchValue2, feetValue1, feetValue2, inchValue, feetValue, yardValue, centimeterValue;
 
+    //    UC1
     @Test
     public void givenBothInchValuesAsZero_ShouldReturnTrue() throws QuantityMeasurementException {
         inchValue1 = new QuantityMeasurement(UnitType.INCH, 0.0);
@@ -43,6 +44,7 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(inchValue, feetValue);
     }
 
+    //    UC2
     @Test
     public void given3FeetAnd1Yard_ShouldReturnTrue() throws QuantityMeasurementException {
         yardValue = new QuantityMeasurement(UnitType.YARD, 1.0);
@@ -104,7 +106,7 @@ public class QuantityMeasurementTest {
         Assert.assertFalse(equals);
     }
 
-    //    UC 3
+    //    UC3
     @Test
     public void given0CentimeterAnd0Centimeter_ShouldReturnTrue() throws QuantityMeasurementException {
         inchValue = new QuantityMeasurement(UnitType.INCH, 0.0);
@@ -138,5 +140,15 @@ public class QuantityMeasurementTest {
         yardValue = new QuantityMeasurement(UnitType.YARD, 1.0);
         centimeterValue = new QuantityMeasurement(UnitType.CENTIMETER, 90.0);
         Assert.assertEquals(centimeterValue, yardValue);
+    }
+
+//    UC 4
+
+    @Test
+    public void given2InchAnd2Inch_WhenCorrect_ShouldReturn4Inch() throws QuantityMeasurementException {
+        inchValue1 = new QuantityMeasurement(UnitType.INCH, 1.0);
+        inchValue2 = new QuantityMeasurement(UnitType.INCH, 1.0);
+        double sumOfUnits = new QuantityMeasurement().getSumOfUnits();
+        Assert.assertEquals(2,sumOfUnits, 0.0);
     }
 }
