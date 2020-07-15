@@ -148,7 +148,7 @@ public class QuantityMeasurementTest {
     public void given2InchAnd2Inch_WhenCorrect_ShouldReturn4Inch() throws QuantityMeasurementException {
         inchValue1 = new QuantityMeasurement(UnitType.INCH, 1.0);
         inchValue2 = new QuantityMeasurement(UnitType.INCH, 1.0);
-        double sumOfUnits = new QuantityMeasurement().getSumOfUnits();
+        double sumOfUnits = new QuantityMeasurement().getSumOfUnits(inchValue1,inchValue2);
         Assert.assertEquals(2,sumOfUnits, 0.0);
     }
 }

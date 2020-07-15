@@ -32,7 +32,8 @@ public class QuantityMeasurement {
         return Double.compare(that.value, value) == 0;  // Value Check
     }
 
-    public double getSumOfUnits() {
-        return 0.0;
+    public double getSumOfUnits(QuantityMeasurement value1, QuantityMeasurement value2) {
+        double sum = value1.value + value2.value;
+        return sum;
     }
 }
