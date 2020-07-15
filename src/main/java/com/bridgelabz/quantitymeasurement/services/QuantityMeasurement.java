@@ -7,14 +7,16 @@ public class QuantityMeasurement {
     private double value;
 
     /**
-     *
      * @param unitType
      * @param value
      * @throws QuantityMeasurementException
      */
     public QuantityMeasurement(UnitType unitType, Double value) throws QuantityMeasurementException {
         try {
-            this.value = (value * unitType.value);
+            if (unitType == UnitType.FAHRENHEIT) {
+                this.value = (value - unitType.value) * 5 / 9;
+            }
+            else this.value = (value * unitType.value);
         } catch (NullPointerException e) {
             throw new QuantityMeasurementException("Null Value Provided",
                     QuantityMeasurementException.ExceptionType.NULL_VALUE_PROVIDED);

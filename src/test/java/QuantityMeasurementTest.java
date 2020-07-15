@@ -7,7 +7,7 @@ import org.junit.Test;
 public class QuantityMeasurementTest {
 
     QuantityMeasurement inchValue1, inchValue2, feetValue1, feetValue2, inchValue, feetValue, yardValue, centimeterValue,
-            gallon, litre, millilitre, kg, gram, tonne;
+            gallon, litre, millilitre, kg, gram, tonne, celsius, fahrenheit;
 
     //    UC1
     @Test
@@ -233,5 +233,13 @@ public class QuantityMeasurementTest {
         gram = new QuantityMeasurement(UnitType.GRAM, 1000.0);
         double sumOfUnits = new QuantityMeasurement().getSumOfUnits(tonne, gram);
         Assert.assertEquals(1001, sumOfUnits, 0.0);
+    }
+
+    //    UC8
+    @Test
+    public void givenTemperatureInCelsiusAndFahrenheit_ShouldReturnEquivalentValue() throws QuantityMeasurementException {
+        fahrenheit = new QuantityMeasurement(UnitType.FAHRENHEIT, 212.0);
+        celsius = new QuantityMeasurement(UnitType.CELSIUS, 100.0);
+        Assert.assertEquals(celsius, fahrenheit);
     }
 }
