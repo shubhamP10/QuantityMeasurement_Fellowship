@@ -33,7 +33,6 @@ public class QuantityMeasurement {
     }
 
     public double getSumOfUnits(QuantityMeasurement value1, QuantityMeasurement value2) {
-        double sum = value1.value + value2.value;
-        return sum;
+        return value1.value + value2.value;
     }
 }

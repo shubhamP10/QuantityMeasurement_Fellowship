@@ -146,9 +146,17 @@ public class QuantityMeasurementTest {
 
     @Test
     public void given2InchAnd2Inch_WhenCorrect_ShouldReturn4Inch() throws QuantityMeasurementException {
-        inchValue1 = new QuantityMeasurement(UnitType.INCH, 1.0);
-        inchValue2 = new QuantityMeasurement(UnitType.INCH, 1.0);
+        inchValue1 = new QuantityMeasurement(UnitType.INCH, 2.0);
+        inchValue2 = new QuantityMeasurement(UnitType.INCH, 2.0);
         double sumOfUnits = new QuantityMeasurement().getSumOfUnits(inchValue1,inchValue2);
-        Assert.assertEquals(2,sumOfUnits, 0.0);
+        Assert.assertEquals(4.0,sumOfUnits, 0.0);
+    }
+
+    @Test
+    public void given1FeetAnd2Inch_WhenCorrect_ShouldReturn4Inch() throws QuantityMeasurementException {
+        feetValue = new QuantityMeasurement(UnitType.FEET, 1.0);
+        inchValue = new QuantityMeasurement(UnitType.INCH, 2.0);
+        double sumOfUnits = new QuantityMeasurement().getSumOfUnits(feetValue,inchValue);
+        Assert.assertEquals(14.0,sumOfUnits, 0.0);
     }
 }
