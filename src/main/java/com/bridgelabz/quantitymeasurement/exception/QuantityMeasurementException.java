@@ -9,6 +9,6 @@ public class QuantityMeasurementException extends Exception {
     }
 
     public enum ExceptionType {
-        NULL_VALUE_PROVIDED
+        UNIT_NOT_COMPARABLE, UNIT_NOT_ADDABLE, NULL_VALUE_PROVIDED
     }
 }
